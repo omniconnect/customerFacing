@@ -1,5 +1,6 @@
 {
     "require": {
-        "pimax/fb-messenger-php": "dev-master"
+        "pimax/fb-messenger-php": "dev-master",
+        "guzzlehttp/guzzle": "~6.0"
     }
 }
