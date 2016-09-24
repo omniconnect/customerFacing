@@ -1,6 +1,6 @@
 <?php
 
-$verify_token = ""; // Verify token
+$verify_token = 'vendetta'; // Verify token
 $token = ""; // Page token
 
 if (file_exists(__DIR__.'/config.php') & empty($_GET['company_id'])) {
