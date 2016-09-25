@@ -13,6 +13,7 @@
 
         public static function getInstance($service_type = NULL, $data = array()) {
             $instance = NULL;
+            $service_type = strtolower($service_type);
             if (!empty($service_type)) {
                 switch ($service_type) {
                     case 'facebook' :
