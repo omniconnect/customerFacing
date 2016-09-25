@@ -1,5 +1,8 @@
 <?php
     // validate request for external service
+    require_once(dirname(__FILE__) . '/vendor/autoload.php');
+    include_once dirname(__FILE__) . '/src/utils/Logger.php';
+    include_once dirname(__FILE__) . 'src/api/request.php';
     include_once 'app.php';
     $app = NULL;
     if (!empty($_REQUEST['service_name'])) {
