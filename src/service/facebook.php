@@ -28,6 +28,9 @@
             parent::__construct($token);
         }
 
+        public function hasPayload(){
+            return !empty($this->payload['entry'][0]['messaging']) ? true : false;
+        }
         public function getMessageFromPayload() {
             return $this->payload['entry'][0]['messaging']['text'];
         }
@@ -48,7 +51,7 @@
         }
 
         public function queue($data) {
-            if ($this->validate($data)) {
+            if ($this->hasPayload() && !empty($data['company_id'])) {
                 $api    = new request();
                 $params = [
                     'company_id'   => $data['company_id'],
