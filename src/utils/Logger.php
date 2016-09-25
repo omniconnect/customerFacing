@@ -1,5 +1,4 @@
 <?php
-    namespace anonymous\utils;
     /**
      * Created by PhpStorm.
      * User: prasad.p

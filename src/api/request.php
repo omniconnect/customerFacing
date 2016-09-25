@@ -1,8 +1,8 @@
 <?php
-    namespace anonymous\api;
 
-    use anonymous\utils\Logger;
     use GuzzleHttp\Client;
+
+    include_once '../utils/Logger.php';
 
     /**
      * Created by PhpStorm.

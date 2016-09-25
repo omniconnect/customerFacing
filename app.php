@@ -1,6 +1,5 @@
 <?php
 
-    namespace anonymous;
 
     /**
      * Created by PhpStorm.
@@ -8,8 +7,7 @@
      * Date: 25/09/16
      * Time: 12:58 AM
      */
-    use anonymous\service\facebook;
-    use anonymous\utils\Logger;
+include "src/service/facebook.php";
 
     class app {
 
@@ -18,13 +16,13 @@
             if (!empty($service_type)) {
                 switch ($service_type) {
                     case 'facebook' :
-                        $instance          = new facebook($data['token']);
+                        $instance          = new facebook($data['data']['token']);
                         $instance->payload = json_decode(file_get_contents("php://input"), true, 512);
                         Logger::debug($instance->payload);
                         break;
                     default:
                         Logger::error(['service_type' => $service_type, 'payload' => $data, 'message' => 'Exception: Service not found']);
-                        throw new \Exception('Service not found');
+                        throw new Exception('Service not found');
                 }
             }
 

@@ -1,11 +1,9 @@
 <?php
-    namespace anonymous\service;
 
-    use anonymous\api\request;
-    use anonymous\utils\Logger;
     use pimax\FbBotApp;
     use pimax\Messages\Message;
-
+    include_once '../utils/Logger.php';
+    include_once '../api/request.php';
 
     /**
      * Created by PhpStorm.
@@ -26,16 +24,16 @@
 
         public $payload = array();
 
+        public function __construct($token = NULL) {
+            parent::__construct($token);
+        }
+
         public function getMessageFromPayload() {
             return $this->payload['entry'][0]['messaging']['text'];
         }
 
         public function getSenderIdFromPayload() {
             return $this->payload['entry'][0]['messaging']['sender']['id'];
-        }
-
-        public function __construct($token = NULL) {
-            parent::__construct($token);
         }
 
         protected function call($url, $data, $type = self::TYPE_POST) {
