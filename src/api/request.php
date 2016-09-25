@@ -19,13 +19,12 @@
                 // You can set any number of default request options.
                 'timeout'  => 2.0,
             ];
-            parent::__construct(array_merge($defaults, $config));
+            parent::__construct($defaults);
         }
 
         public function createMessage($data = array()) {
-            Logger::debug(['config' => $this->getConfig(), 'request_data' => $data]);
             $response = $this->request('POST', '/newMessage', ['form_params' => $data]);
-            Logger::debug(['config' => $this->getConfig(), 'response_data' => $response]);
+            Logger::debug(['path' => '/newMessage', 'data' => $data]);
 
             return $response;
         }

@@ -29,14 +29,14 @@
         }
 
         public function hasPayload(){
-            return !empty($this->payload['entry'][0]['messaging']) ? true : false;
+            return !empty($this->payload['entry'][0]['messaging'][0]) ? true : false;
         }
         public function getMessageFromPayload() {
-            return $this->payload['entry'][0]['messaging']['text'];
+            return $this->payload['entry'][0]['messaging'][0]['message']['text'];
         }
 
         public function getSenderIdFromPayload() {
-            return $this->payload['entry'][0]['messaging']['sender']['id'];
+            return $this->payload['entry'][0]['messaging'][0]['sender']['id'];
         }
 
         protected function call($url, $data, $type = self::TYPE_POST) {

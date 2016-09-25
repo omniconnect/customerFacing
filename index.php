@@ -7,6 +7,7 @@
     $app = NULL;
     if (!empty($_REQUEST['service_name'])) {
         $app = app::getInstance($_REQUEST['service_name'], $_REQUEST);
+        Logger::info($app);
         // to app server
         if (!empty($_GET['company_id'])) {
             if (!$app->handle_challenge()) {
