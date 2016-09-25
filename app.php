@@ -7,7 +7,7 @@
      * Date: 25/09/16
      * Time: 12:58 AM
      */
-    include_once dirname(__FILE__) . "src/service/facebook.php";
+    include_once dirname(__FILE__) . "/src/service/facebook.php";
 
     class app {
 
