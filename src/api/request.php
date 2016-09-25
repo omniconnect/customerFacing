@@ -2,7 +2,7 @@
 
     use GuzzleHttp\Client;
 
-    include_once '../utils/Logger.php';
+    include_once dirname(dirname(__FILE__)) . '/utils/Logger.php';
 
     /**
      * Created by PhpStorm.

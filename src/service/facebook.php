@@ -2,8 +2,8 @@
 
     use pimax\FbBotApp;
     use pimax\Messages\Message;
-    include_once '../utils/Logger.php';
-    include_once '../api/request.php';
+    include_once dirname(dirname(__FILE__)) . '/utils/Logger.php';
+    include_once dirname(dirname(__FILE__)) . '/api/request.php';
 
     /**
      * Created by PhpStorm.
