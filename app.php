@@ -8,6 +8,7 @@
      * Time: 12:58 AM
      */
     include_once dirname(__FILE__) . "/src/service/facebook.php";
+    include_once dirname(__FILE__) . "/src/service/whatsapp.php";
 
     class app {
 
@@ -17,9 +18,20 @@
             if (!empty($service_type)) {
                 switch ($service_type) {
                     case 'facebook' :
-                        $instance          = new facebook($data['data']['token']);
+                        $instance          = new facebook("EAARhx36Ro2gBAEZCBlcW0mJdPVHGbZC2lfG2LePzv1ZAcdb4ZBV4R6ZC9MEAEyWW1w1zw840ZC5L6WlAVkqu0OsX6rZBbEJCs66JjvBX6PSSSktfwhqPhyZAwAQs8OLgOwuM2eJqLsudoFjz1Ujrjjlq4IKVRJmTTpXB5CTzgoxNqwZDZD");
                         $instance->payload = json_decode(file_get_contents("php://input"), true, 512);
-                        Logger::debug($instance->payload);
+                        break;
+                    case 'whatsapp':
+                        $instance = new whatsapp();
+                        $instance->payload = $data;
+                        break;
+                    case 'google_assistant':
+                        $instance = new whatsapp();
+                        $instance->payload = $data;
+                        break;
+                    case 'dca':
+                        $instance = new DCA();
+                        $instance->payload = $data;
                         break;
                     default:
                         Logger::error(['service_type' => $service_type, 'payload' => $data, 'message' => 'Exception: Service not found']);
